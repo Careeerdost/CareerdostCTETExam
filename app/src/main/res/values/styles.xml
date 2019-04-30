@@ -1,0 +1,21 @@
+<resources>
+
+    <style name="CareerdostTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="CareerdostTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="CareerdostTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CareerdostTheme.WhiteAccent">
+        <item name="colorAccent">@color/colorWhite</item>
+    </style>
+
+</resources>
