@@ -1,4 +1,39 @@
 <resources>
-
-
+    <string name="app_name">CTET Exam Prep - Quiz</string>
+    <string name="welcome_dost">Welcome Dost!</string>
+    <string name="select_your_language">Select your Language</string>
+    <string name="select_your_subject">Select your Subject</string>
+    <string name="ctet_exam_prep">CTET Exam Prep Videos</string>
+    <string name="child_dev_ped">Child Development\nand Pedagogy</string>
+    <string name="eng_lan">English</string>
+    <string name="maths">Mathematics</string>
+    <string name="hin_lan_hindi">Hindi</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="todo">TODO</string>
+    <string name="question">Question</string>
+    <string name="_0_10">0/10</string>
+    <string name="timer">Timer</string>
+    <string name="score">Score</string>
+    <string name="retake">Retake</string>
+    <string name="share_result">Share\nResult</string>
+    <string name="app_version">App Version.: 5.7.4</string>
+    <string name="app_email">support@careerdost.in</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="help">App Help</string>
+    <string name="sub_yt">Subscribe us on Youtube</string>
+    <string name="like_fb">Like us on FB</string>
+    <string name="follow_tw">Follow us on Twitter</string>
+    <string name="share_app">Share App</string>
+    <string name="more_apps">More Apps</string>
+    <string name="update_app">Update App</string>
+    <string name="follow_us">Follow us on</string>
+    <string name="share">Share</string>
+    <string name="option_one">Option 1</string>
+    <string name="option_two">Option 2</string>
+    <string name="option_three">Option 3</string>
+    <string name="option_four">Option 4</string>
+    <string name="confirm">Confirm</string>
+    <string name="skip">Skip</string>
+    <string name="appreciate_your_time">Thanks for your Time!\n Would you like to Rate Us!</string>
 </resources>
