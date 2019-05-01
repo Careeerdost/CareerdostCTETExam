@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import in.careerdost.R;
-import in.careerdost.database.CustomPercentFormatter;
 import in.careerdost.database.Question_TET_engLan;
 
 public class results_quiz_engLan extends AppCompatActivity {
