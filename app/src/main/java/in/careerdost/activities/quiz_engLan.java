@@ -1,5 +1,4 @@
 package in.careerdost.activities;
-
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -12,17 +11,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Locale;
-
 import in.careerdost.R;
 import in.careerdost.database.Question_TET_engLan;
 import in.careerdost.database.QuizDb_TET_engLan;
@@ -35,26 +27,17 @@ public class quiz_engLan extends AppCompatActivity {
     private int totalQuestion;
     int attempt_counter = 6;
     int correctAnswer = 0;
-
-    InterstitialAd interstitialAd = null;
-
     private Question_TET_engLan currentQ;
     private TextView catLevel, question, timer, overallScore, txtTotalQuestion,
             txtShowAnswer, overallCorrectAnswer;
     private Button btnConfirm;
     private RadioGroup rbGroup;
     private RadioButton rb1, rb2, rb3, rb4;
-
     private int skipped = 0;
     private final int incorrectAnswer = totalQuestion - (score / 5);
-
     int eachCorrectAnswerScore = 5;
     int eachIncorrectAnswerScore = 0;
     int correctAnswers = totalQuestion - incorrectAnswer;
-
-    private ColorStateList txtColorDefaultRb;
-    private ColorStateList txtColorDefaultCd;
-    private long timeLeftInMillis;
     private boolean answered;
 
     @Override
@@ -68,20 +51,14 @@ public class quiz_engLan extends AppCompatActivity {
         rb2 = findViewById(R.id.radio_button2);
         rb3 = findViewById(R.id.radio_button3);
         rb4 = findViewById(R.id.radio_button4);
-
         btnConfirm = findViewById(R.id.btn_confirm);
         Button btnSkip = findViewById(R.id.btn_skip);
-
         txtShowAnswer = findViewById(R.id.txt_show_Answer);
         catLevel = findViewById(R.id.ques_category);
         overallCorrectAnswer = findViewById(R.id.overallCorrectAnswer);
-
         overallScore = findViewById(R.id.overallScore);
         timer = findViewById(R.id.timer);
         txtTotalQuestion = findViewById(R.id.txtTotalQuestion);
-
-        txtColorDefaultRb = rb1.getTextColors();
-        txtColorDefaultCd = timer.getTextColors();
 
         Intent intent = getIntent();
         String ctgEngLan = intent.getStringExtra(tet_quiz_english.Eng_Lan);
@@ -114,15 +91,6 @@ public class quiz_engLan extends AppCompatActivity {
             skipped = skipped + 1;
             setNextQues();
         });
-
-        AdView mAdView = findViewById(R.id.quiz_banner_ad);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId(getString(R.string.interstitial_careerdost));
-        AdRequest interAdRequest = new AdRequest.Builder().build();
-        interstitialAd.loadAd(interAdRequest);
     }
 
     private void setNextQues() {
@@ -199,15 +167,6 @@ public class quiz_engLan extends AppCompatActivity {
     }
 
     private void finishQuiz() {
-        if (interstitialAd.isLoaded()) {
-            interstitialAd.show();
-            interstitialAd.setAdListener(new AdListener() {
-                @Override
-                public void onAdClosed() {
-                    super.onAdClosed();
-                }
-            });
-        } else {
             String ctgTitle = catLevel.getText().toString();
             Intent intent = new Intent(quiz_engLan.this, results_quiz_engLan.class);
             Bundle b = new Bundle();
@@ -221,6 +180,5 @@ public class quiz_engLan extends AppCompatActivity {
             intent.putExtras(b);
             startActivity(intent);
             finish();
-        }
     }
 }
