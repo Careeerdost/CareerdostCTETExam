@@ -1,4 +1,4 @@
-# Careerdost CTET Exam
+# CTET 2019 Exam - Preparation and Quiz 
 
 CTET (Central Teacher Eligibility Test) exam, is a national recruitment process to appoint the skilful teachers for Primary level & Upper Primary Level. Central Board of Secondary Education (CBSE) will conduct this exam in an offline mode. Earlier the CTET was being conducted twice every year, but as per the latest notice, it will be conducted once every year from now onwards.
 
