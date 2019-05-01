@@ -1,5 +1,4 @@
 package in.careerdost.activities;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -9,23 +8,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-
 import in.careerdost.R;
 import in.careerdost.database.Question_TET_childDevPed;
 import in.careerdost.database.Question_TET_engLan;
 
 public class tet_quiz_english extends AppCompatActivity {
-
     public static final String Child_Dev_Ped = "childDevPed";
     public static final String Eng_Lan = "engLan";
     private Spinner spinner_childDevPed, spinner_engLan;
     Button childDevPedBtn, engLanBtn;
-
-    InterstitialAd interstitialAd = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +52,6 @@ public class tet_quiz_english extends AppCompatActivity {
         spinner_engLan.setAdapter(adptCtgEngLan);
 
         engLanBtn.setOnClickListener((View v) -> startQuizEngLan());
-
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId(getString(R.string.interstitial_careerdost));
-        AdRequest adRequest = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest);
     }
 
     private void startQuizChildDevPed() {
@@ -80,22 +66,5 @@ public class tet_quiz_english extends AppCompatActivity {
         Intent levelTwo = new Intent(tet_quiz_english.this, quiz_engLan.class);
         levelTwo.putExtra(Eng_Lan, engLan);
         startActivity(levelTwo);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (interstitialAd.isLoaded()) {
-            interstitialAd.show();
-            interstitialAd.setAdListener(new AdListener() {
-                @Override
-                public void onAdClosed() {
-                    super.onAdClosed();
-                }
-            });
-        } else {
-            Intent intent = new Intent(this, main_act.class);
-            startActivity(intent);
-            finish();
-        }
     }
 }
