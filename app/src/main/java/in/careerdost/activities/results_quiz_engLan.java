@@ -1,5 +1,4 @@
 package in.careerdost.activities;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,30 +7,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import in.careerdost.R;
 import in.careerdost.database.Question_TET_engLan;
 
 public class results_quiz_engLan extends AppCompatActivity {
-
     ArrayList<Question_TET_engLan> questionTETengLanList = new ArrayList<>();
-
     TextView mGrade, mFinalScore, mCorrectAns, pAssPercentage;
     TextView total_ques, catQuizEngLan, skipped_ques, correct_ans, incorrect_ans;
     Button mRetryButton, btnRetake, btnShareResult;
     ImageView resultsImage;
-
     Question_TET_engLan currentQ;
     private int totalQuestion;
     private DecimalFormat mFormat;
-    InterstitialAd interstitialAd = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +30,6 @@ public class results_quiz_engLan extends AppCompatActivity {
         catQuizEngLan = findViewById(R.id.cat_quiz_title);
         mGrade = findViewById(R.id.congrats);
         mFinalScore = findViewById(R.id.youScored);
-
         btnRetake = findViewById(R.id.btnRetake);
         btnShareResult = findViewById(R.id.btnShareResult);
         resultsImage = findViewById(R.id.resultsImage);
@@ -59,27 +47,10 @@ public class results_quiz_engLan extends AppCompatActivity {
         mFinalScore.setText(mFinalScoreText);
         catQuizEngLan.setText(ctgTitle);
 
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId(getString(R.string.interstitial_careerdost));
-        AdRequest interAdRequest = new AdRequest.Builder().build();
-        interstitialAd.loadAd(interAdRequest);
-
         btnRetake.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    interstitialAd.show();
-                    interstitialAd.setAdListener(new AdListener() {
-                        @Override
-                        public void onAdClosed() {
-                            super.onAdClosed();
-                            finish();
-                        }
-                    });
-                } else {
                     startActivity(new Intent(results_quiz_engLan.this, tet_quiz_english.class));
                     results_quiz_engLan.this.finish();
-                }
             }
         });
         btnShareResult.setOnClickListener(v -> {
